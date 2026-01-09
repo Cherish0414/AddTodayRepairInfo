@@ -1,0 +1,58 @@
+# PyInstaller build files
+build/
+dist/
+*.spec
+*.exe
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+env/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+*.tmp
+*.bak
+
+# Backup files
+*~.bak
+*.swp
+*.swo
+
+# Dependency directories
+node_modules/
+bower_components/
+vendor/
+
+# Other files
+*.sqlite3
+*.db
+*.csv
+*.xlsx
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.pdf
+*.docx
+*.pptx
+*.enc
+*.pickle
+*.json
+*.key
+test.py
