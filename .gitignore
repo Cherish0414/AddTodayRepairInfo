@@ -42,6 +42,11 @@ vendor/
 # Config files
 config.toml
 
+# version files
+generate_version.py
+version.txt
+version.py
+
 # Other files
 *.sqlite3
 *.db
@@ -59,5 +64,4 @@ config.toml
 *.json
 *.key
 *.ps1
-*.txt
 test.py
