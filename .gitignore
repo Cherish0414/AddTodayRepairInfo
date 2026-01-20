@@ -39,6 +39,9 @@ node_modules/
 bower_components/
 vendor/
 
+# Config files
+config.toml
+
 # Other files
 *.sqlite3
 *.db
@@ -55,4 +58,6 @@ vendor/
 *.pickle
 *.json
 *.key
+*.ps1
+*.txt
 test.py

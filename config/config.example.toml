@@ -1,0 +1,8 @@
+[database]
+driver = "mssql"
+host = "127.0.0.1"
+port = 1433
+database = "your_database"
+username = "your_user"
+password = "your_password"
+timeout = 10
