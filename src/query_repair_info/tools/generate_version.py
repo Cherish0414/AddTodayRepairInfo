@@ -32,7 +32,7 @@ content = (
 
 Path("version.txt").write_text(content, encoding="utf-8")
 
-Path("src/query_repair_info/version.py").write_text(
+Path("version.py").write_text(
     f'__version__ = "{version}"\n',
     encoding="utf-8"
     )
