@@ -1,16 +1,8 @@
 import tomllib
 from time import strftime, localtime
 import os
-import sys
-from pathlib import Path
+from query_repair_info.bootstrap import BASE_DIR
 
-def get_base_dir() -> Path:
-    if getattr(sys, "frozen", False):
-        return Path(os.path.dirname(sys.executable))
-    else:
-        return Path(__file__).resolve().parents[3]
-
-BASE_DIR = get_base_dir()
 CONFIG_PATH = BASE_DIR / "config" / "config.toml"
 
 class Config:

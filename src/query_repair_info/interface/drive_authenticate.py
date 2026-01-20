@@ -4,16 +4,8 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import logging
-import sys
-from pathlib import Path
+from query_repair_info.bootstrap import BASE_DIR
 
-def get_base_dir() -> Path:
-    if getattr(sys, "frozen", False):
-        return Path(os.path.dirname(sys.executable))
-    else:
-        return Path(__file__).resolve().parents[3]
-
-BASE_DIR = get_base_dir()
 CREDENTIALS_PATH = BASE_DIR / "config" / "credentials.json"
 TOKEN_PATH = BASE_DIR / "config" / "token.pickle"
 SCOPES = ['https://www.googleapis.com/auth/drive.file']

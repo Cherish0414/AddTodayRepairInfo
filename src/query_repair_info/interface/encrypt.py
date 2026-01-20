@@ -1,16 +1,7 @@
 from cryptography.fernet import Fernet
 import logging
-import os
-import sys
-from pathlib import Path
+from query_repair_info.bootstrap import BASE_DIR
 
-def get_base_dir() -> Path:
-    if getattr(sys, "frozen", False):
-        return Path(os.path.dirname(sys.executable))
-    else:
-        return Path(__file__).resolve().parents[3]
-
-BASE_DIR = get_base_dir()
 AES_KEY = BASE_DIR / "config" / "aes.key"
 logger  = logging.getLogger(__name__)
 
