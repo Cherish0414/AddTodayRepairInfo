@@ -95,5 +95,12 @@ class Config:
             return strftime("%Y-%m-%d", localtime())
         else:
             return self._data.get("Others", {}).get("query_date") 
+    
+    @property
+    def query_time(self) -> str:
+        if self._data.get("Others", {}).get("query_time", "") == "":
+            return "00:00:00"
+        else:
+            return self._data.get("Others", {}).get("query_time")
 
 config = Config()

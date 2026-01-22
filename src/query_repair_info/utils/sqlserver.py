@@ -1,4 +1,5 @@
 from pandas import DataFrame
+from datetime import datetime, timedelta
 from ..interface.sqlserver_conn import db_connection
 from ..config.config import config
 import logging
@@ -8,6 +9,13 @@ logger = logging.getLogger(__name__)
 def query_testdata() -> DataFrame:
     query_columns = ', A.'.join([f"{col}" for col in config.query_columns])
     query_date = config.query_date
+    query_time = config.query_time
+    
+    if query_time == "00:00:00":
+        query_datetime = query_date
+    else:
+        query_dt = datetime.strptime(query_date, "%Y-%m-%d")
+        query_datetime = (query_dt - timedelta(days=1)).strftime("%Y-%m-%d") + ' ' + query_time
     
     query = f"""
     SELECT 
@@ -17,9 +25,10 @@ def query_testdata() -> DataFrame:
     FROM [CPS-PL-Database].dbo.TestData A
     LEFT JOIN [CPS-PL-Database].dbo.TestData B
         ON A.BSN2 = B.BSN
-    WHERE A.RR_TestTimes > '{query_date}'
+    WHERE A.RR_TestTimes > '{query_datetime}'
     order by A.RR_TestTimes ;
     """
+    
     # query_columns_a = ", ".join([f"R.{col}" for col in config.query_columns])
     # query_columns_s = ", ".join([f"S.{col}" for col in config.query_columns])
     
@@ -33,7 +42,7 @@ def query_testdata() -> DataFrame:
     #             BSN,
     #             BSN2
     #         FROM [CPS-PL-Database].dbo.TestData
-    #         WHERE RR_TestTimes > '{query_date}'
+    #         WHERE RR_TestTimes > '{query_datetime}'
     #         UNION ALL
     #         SELECT 
     #             R.StartIMEI,
