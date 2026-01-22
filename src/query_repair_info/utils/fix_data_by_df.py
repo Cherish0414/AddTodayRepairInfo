@@ -43,7 +43,7 @@ def fix_data(df:pd.DataFrame) -> pd.DataFrame:
     df.rename(
         columns=
         {
-            'StartIMEI' : '修理後IMEI',
+            'IMEI_Main_Current' : '修理後IMEI',
             'RR_TestTimes' : '修理報告時間',
             'ManagementNumber' : '管理番号',
             'MaintenanceScenario' : '修理パターン',
@@ -51,7 +51,7 @@ def fix_data(df:pd.DataFrame) -> pd.DataFrame:
             'RootCause' : '不具合の症状',
             'Solutions' : '修理手段',
             'responsibilitydivision' : '責任',
-            'EndIMEI' : '修理前IMEI',
+            'IMEI_Main_Original' : '修理前IMEI',
         }, inplace=True
     )
     
